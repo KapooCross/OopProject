@@ -1,5 +1,6 @@
 package by.itstep.j1022.JB.model.logic;
 
+import by.itstep.j1022.JB.dataBase.MedicalDAO;
 import by.itstep.j1022.JB.model.data.MedicalInstitution;
 
 import java.util.List;
@@ -66,6 +67,16 @@ public class MedicalManager {
         }
 
         return message;
+    }
+
+    public static void addMedicalInstitution(List<MedicalInstitution> list){
+        MedicalDAO medicalDAO = new MedicalDAO();
+        medicalDAO.insert(medicalDAO.getConnection(), list);
+    }
+
+    public static void deleteMedicalInstitution(List<MedicalInstitution> list){
+        MedicalDAO medicalDAO = new MedicalDAO();
+        medicalDAO.insert(medicalDAO.getConnection(), list);
     }
 
 }
