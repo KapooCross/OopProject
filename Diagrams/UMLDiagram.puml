@@ -1,0 +1,139 @@
+@startuml
+class by.itstep.j1022.JB.programInterface.Switcher {
++ {static} String OPERATIONS
+~ Printable printer
++ boolean switcherOperation(int,List<MedicalInstitution>)
++ {static} Integer enterVariable()
+}
+class by.itstep.j1022.JB.dataBase.MedicalDAO {
+~ Scanner scanner
+~ Printable printer
++ void insert(Connection,List<MedicalInstitution>)
++ ResultSet select(Connection,List<MedicalInstitution>)
++ void delete(Connection,List<MedicalInstitution>)
+}
+abstract class by.itstep.j1022.JB.dataBase.AbstractDAO {
++ String getPropertyValue(String)
++ Connection getConnection()
++ void releaseConnection(Connection)
+}
+abstract class by.itstep.j1022.JB.model.data.MedicalInstitution {
+- String name
+- int amountOfVisitors
+- int amountOfWorkers
+- String workingHours
+- Treatment typeOfTreatment
++ String getName()
++ void setName(String)
++ int getAmountOfVisitors()
++ void setAmountOfVisitors(int)
++ int getAmountOfWorkers()
++ void setAmountOfWorkers(int)
++ String getWorkingHours()
++ void setWorkingHours(String)
++ Treatment getTypeOfTreatment()
++ void setTypeOfTreatment(Treatment)
++ String toString()
++ int compareTo(MedicalInstitution)
+}
+class by.itstep.j1022.JB.view.ConsolePrinter {
++ void print(String)
+}
+interface by.itstep.j1022.JB.view.Printable {
+~ void print(String)
+}
+class by.itstep.j1022.JB.model.data.Clinic {
+- boolean availabilityDoctorsAppointment
+- boolean availabilityPhysicalTherapy
++ boolean getAvailabilityDoctorsAppointment()
++ void setAvailabilityDoctorsAppointment(boolean)
++ boolean getAvailabilityPhysicalTherapy()
++ void setAvailabilityPhysicalTherapy(boolean)
++ String getName()
++ void setName(String)
++ int getAmountOfVisitors()
++ void setAmountOfVisitors(int)
++ int getAmountOfWorkers()
++ void setAmountOfWorkers(int)
++ String getWorkingHours()
++ void setWorkingHours(String)
++ Treatment getTypeOfTreatment()
++ void setTypeOfTreatment(Treatment)
++ String toString()
+}
+class by.itstep.j1022.JB.model.data.Hospital {
+- boolean availabilityWards
+- boolean availabilityReanimation
+- boolean availabilityDiningRoom
+- boolean performOperation
++ boolean getAvailabilityWards()
++ void setAvailabilityWards(boolean)
++ boolean getAvailabilityReanimation()
++ void setAvailabilityReanimation(boolean)
++ boolean getAvailabilityDiningRoom()
++ void setAvailabilityDiningRoom(boolean)
++ boolean getPerformOperation()
++ void setPerformOperation(boolean)
++ String getName()
++ void setName(String)
++ int getAmountOfVisitors()
++ void setAmountOfVisitors(int)
++ int getAmountOfWorkers()
++ void setAmountOfWorkers(int)
++ String getWorkingHours()
++ void setWorkingHours(String)
++ Treatment getTypeOfTreatment()
++ void setTypeOfTreatment(Treatment)
++ String toString()
+}
+interface by.itstep.j1022.JB.dataBase.IAbstractDAO {
+~ void insert(Connection,List<MedicalInstitution>)
+~ ResultSet select(Connection,List<MedicalInstitution>)
+~ void delete(Connection,List<MedicalInstitution>)
+}
+enum by.itstep.j1022.JB.model.data.Treatment {
++  OUTPATIENT
++  STATIONARY
+- String name
++ String getName()
+}
+class by.itstep.j1022.JB.controller.Main {
++ {static} void main(String[])
+}
+class by.itstep.j1022.JB.model.logic.MedicalManager {
++ {static} String medicalInstitution(List<MedicalInstitution>)
++ {static} String totalNumberOfVisitors(List<MedicalInstitution>)
++ {static} String medicalInstitutionWithTheLeastNumberOfVisitors(List<MedicalInstitution>)
++ {static} String sortingByNumberOfVisitors(List<MedicalInstitution>)
++ {static} void addMedicalInstitution(List<MedicalInstitution>)
++ {static} void deleteMedicalInstitution(List<MedicalInstitution>)
+}
+class by.itstep.j1022.JB.model.data.MobileEmergencyDepartment {
+- boolean mobile
+- boolean availabilityCar
++ boolean getMobile()
++ void setMobile(boolean)
++ boolean getAvailabilityCar()
++ void setAvailabilityCar(boolean)
++ String getName()
++ void setName(String)
++ int getAmountOfVisitors()
++ void setAmountOfVisitors(int)
++ int getAmountOfWorkers()
++ void setAmountOfWorkers(int)
++ String getWorkingHours()
++ void setWorkingHours(String)
++ Treatment getTypeOfTreatment()
++ void setTypeOfTreatment(Treatment)
++ String toString()
+}
+
+
+by.itstep.j1022.JB.dataBase.IAbstractDAO <|.. by.itstep.j1022.JB.dataBase.MedicalDAO
+by.itstep.j1022.JB.dataBase.AbstractDAO <|-- by.itstep.j1022.JB.dataBase.MedicalDAO
+by.itstep.j1022.JB.model.data.Comparable <|.. by.itstep.j1022.JB.model.data.MedicalInstitution
+by.itstep.j1022.JB.view.Printable <|.. by.itstep.j1022.JB.view.ConsolePrinter
+by.itstep.j1022.JB.model.data.MedicalInstitution <|-- by.itstep.j1022.JB.model.data.Clinic
+by.itstep.j1022.JB.model.data.MedicalInstitution <|-- by.itstep.j1022.JB.model.data.Hospital
+by.itstep.j1022.JB.model.data.MedicalInstitution <|-- by.itstep.j1022.JB.model.data.MobileEmergencyDepartment
+@enduml
