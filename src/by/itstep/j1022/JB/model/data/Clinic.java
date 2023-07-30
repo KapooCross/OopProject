@@ -1,10 +1,8 @@
 package by.itstep.j1022.JB.model.data;
 
 public class Clinic extends MedicalInstitution {
-
-    //налчие записи к врачу
+    
     private boolean availabilityDoctorsAppointment;
-    //наличие физиотерапии
     private boolean availabilityPhysicalTherapy;
 
 

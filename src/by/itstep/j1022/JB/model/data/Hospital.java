@@ -2,7 +2,6 @@ package by.itstep.j1022.JB.model.data;
 
 public class Hospital extends MedicalInstitution{
 
-    //наличие палат
     private boolean availabilityWards;
     private boolean availabilityReanimation;
     private boolean availabilityDiningRoom;
@@ -12,9 +11,6 @@ public class Hospital extends MedicalInstitution{
     public Hospital() {
     }
 
-//    public Hospital(String name, int amountOfVisitors, int amountOfWorkers) {
-//        super("Hospital: " +name, amountOfVisitors, amountOfWorkers);
-//    }
 
 
     public Hospital(boolean availabilityWards, boolean availabilityReanimation, boolean availabilityDiningRoom, boolean performOperation) {
