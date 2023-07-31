@@ -33,6 +33,8 @@ public class OperationDb {
                  Statement statement = connection.createStatement();
                  ResultSet table = statement.executeQuery(getPropertyValue("SQL_SELECT_medical"))) {
 
+                MedicalInstitution medical = null;
+
                 while (table.next()) {
                     if (table.getString("type").contains("Hospital")) {
                         Hospital hospital = new Hospital();
@@ -46,7 +48,7 @@ public class OperationDb {
                         hospital.setAvailabilityDiningRoom(table.getBoolean("dining_room"));
                         hospital.setPerformOperation(table.getBoolean("perform_operation"));
 
-                        list.add(hospital);
+                        medical = hospital;
                     }
                     if (table.getString("type").contains("Clinic")) {
                         Clinic clinic = new Clinic();
@@ -58,7 +60,7 @@ public class OperationDb {
                         clinic.setAvailabilityDoctorsAppointment(table.getBoolean("doctors_appointment"));
                         clinic.setAvailabilityPhysicalTherapy(table.getBoolean("physical_therapy"));
 
-                        list.add(clinic);
+                        medical = clinic;
                     }
                     if (table.getString("type").contains("MobileEmergencyDepartment")) {
                         MobileEmergencyDepartment department = new MobileEmergencyDepartment();
@@ -70,9 +72,9 @@ public class OperationDb {
                         department.setMobile(table.getBoolean("mobile"));
                         department.setAvailabilityCar(table.getBoolean("car"));
 
-                        list.add(department);
+                        medical = department;
                     }
-
+                    list.add(medical);
                 }
             } catch (SQLException e) {
                 new ConsolePrinter().print(e + "");
