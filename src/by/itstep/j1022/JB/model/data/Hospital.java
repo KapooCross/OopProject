@@ -7,11 +7,8 @@ public class Hospital extends MedicalInstitution{
     private boolean availabilityDiningRoom;
     private boolean performOperation;
 
-
     public Hospital() {
     }
-
-
 
     public Hospital(boolean availabilityWards, boolean availabilityReanimation, boolean availabilityDiningRoom, boolean performOperation) {
         this.availabilityWards = availabilityWards;

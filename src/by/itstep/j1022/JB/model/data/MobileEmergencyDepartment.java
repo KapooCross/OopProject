@@ -1,6 +1,7 @@
 package by.itstep.j1022.JB.model.data;
 
 public class MobileEmergencyDepartment extends MedicalInstitution{
+
     private boolean mobile;
     private boolean availabilityCar;
 

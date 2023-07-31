@@ -5,7 +5,6 @@ public class Clinic extends MedicalInstitution {
     private boolean availabilityDoctorsAppointment;
     private boolean availabilityPhysicalTherapy;
 
-
     public Clinic() {
     }
 

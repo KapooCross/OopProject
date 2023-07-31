@@ -33,7 +33,6 @@ public class OperationDb {
                  Statement statement = connection.createStatement();
                  ResultSet table = statement.executeQuery(getPropertyValue("SQL_SELECT_medical"))) {
 
-//                addToList(table, list);
                 while (table.next()) {
                     if (table.getString("type").contains("Hospital")) {
                         Hospital hospital = new Hospital();
@@ -83,53 +82,4 @@ public class OperationDb {
             new ConsolePrinter().print(e + "");
         }
     }
-
-//    public void addToList(ResultSet table, List<MedicalInstitution> list){
-//
-//        try {
-//        while (table.next()) {
-//            if (table.getString("type").contains("Hospital")) {
-//                Hospital hospital = new Hospital();
-//                hospital.setName(table.getString("name"));
-//                hospital.setAmountOfVisitors(table.getInt("visitors"));
-//                hospital.setAmountOfWorkers(table.getInt("workers"));
-//                hospital.setWorkingHours(table.getString("working_hours"));
-//                hospital.setTypeOfTreatment(Treatment.valueOf(table.getString("treatment")));
-//                hospital.setAvailabilityWards(table.getBoolean("wards"));
-//                hospital.setAvailabilityReanimation(table.getBoolean("reanimation"));
-//                hospital.setAvailabilityDiningRoom(table.getBoolean("dining_room"));
-//                hospital.setPerformOperation(table.getBoolean("perform_operation"));
-//
-//                list.add(hospital);
-//            }
-//            if (table.getString("type").contains("Clinic")) {
-//                Clinic clinic = new Clinic();
-//                clinic.setName(table.getString("name"));
-//                clinic.setAmountOfVisitors(table.getInt("visitors"));
-//                clinic.setAmountOfWorkers(table.getInt("workers"));
-//                clinic.setWorkingHours(table.getString("working_hours"));
-//                clinic.setTypeOfTreatment(Treatment.valueOf(table.getString("treatment")));
-//                clinic.setAvailabilityDoctorsAppointment(table.getBoolean("doctors_appointment"));
-//                clinic.setAvailabilityPhysicalTherapy(table.getBoolean("physical_therapy"));
-//
-//                list.add(clinic);
-//            }
-//            if (table.getString("type").contains("MobileEmergencyDepartment")) {
-//                MobileEmergencyDepartment department = new MobileEmergencyDepartment();
-//                department.setName(table.getString("name"));
-//                department.setAmountOfVisitors(table.getInt("visitors"));
-//                department.setAmountOfWorkers(table.getInt("workers"));
-//                department.setWorkingHours(table.getString("working_hours"));
-//                department.setTypeOfTreatment(Treatment.valueOf(table.getString("treatment")));
-//                department.setMobile(table.getBoolean("mobile"));
-//                department.setAvailabilityCar(table.getBoolean("car"));
-//
-//                list.add(department);
-//            }
-//        }
-//
-//        } catch (SQLException e) {
-//            throw new RuntimeException(e);
-//        }
-//    }
 }

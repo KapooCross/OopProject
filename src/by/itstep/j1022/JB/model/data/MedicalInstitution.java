@@ -1,6 +1,7 @@
 package by.itstep.j1022.JB.model.data;
 
 public abstract class MedicalInstitution implements Comparable<MedicalInstitution> {
+
     private String name;
     private int amountOfVisitors;
     private int amountOfWorkers;
